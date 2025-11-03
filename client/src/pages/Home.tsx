@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
 import { CheckCircle, Zap, Target, TrendingUp, Users, Brain, ArrowRight } from "lucide-react";
@@ -253,4 +252,3 @@ export default function Home() {
     </div>
   );
 }
-
