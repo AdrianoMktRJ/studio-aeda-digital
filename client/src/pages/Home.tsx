@@ -100,6 +100,9 @@ export default function Home() {
           </h1>
           <p className="text-xl md:text-2xl text-blue-100 mb-8 leading-relaxed">
             Mais produtividade, menos complexidade. Automação e IA sob medida para construtoras e escritórios de advocacia.
+         <div className="mt-12">
+    {/* A imagem do dashboard está sendo injetada aqui. Removendo o placeholder. */}
+</div>
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button
