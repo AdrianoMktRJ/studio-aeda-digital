@@ -101,7 +101,7 @@ export default function Home() {
           <p className="text-xl md:text-2xl text-blue-100 mb-8 leading-relaxed">
             Mais produtividade, menos complexidade. Automação e IA sob medida para construtoras e escritórios de advocacia.
          <div className="mt-12">
-    {/* A imagem do dashboard está sendo injetada aqui. Removendo o placeholder. */}
+    <img src="/images/hero-servicos-aeda.png" alt="Inteligência Artificial e Automação - Studio AEDA Digital" className="w-full max-w-2xl mx-auto rounded-lg shadow-2xl mt-8" />
 </div>
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
