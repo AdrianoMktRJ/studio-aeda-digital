@@ -100,10 +100,10 @@ export default function Home() {
           </h1>
           <p className="text-xl md:text-2xl text-blue-100 mb-8 leading-relaxed">
             Mais produtividade, menos complexidade. Automação e IA sob medida para construtoras e escritórios de advocacia.
-         <div className="mt-12">
-    <img src="/images/hero-servicos-aeda.png" alt="Inteligência Artificial e Automação - Studio AEDA Digital" className="w-full max-w-2xl mx-auto rounded-lg shadow-2xl mt-8" />
-</div>
           </p>
+          <div className="mt-12">
+            <img src="/images/hero-servicos-aeda.png" alt="Inteligência Artificial e Automação - Studio AEDA Digital" className="w-full max-w-2xl mx-auto rounded-lg shadow-2xl" />
+          </div>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button
               className="bg-[#f97316] hover:bg-[#b86105] text-white font-semibold px-8 py-6 rounded-lg shadow-md transition-all text-lg"
