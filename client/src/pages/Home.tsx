@@ -7,6 +7,7 @@ import Footer from "@/components/Footer";
 import { useState } from "react";
 import "../animations.css";
 import "../visual-integration.css";
+import "../visual-integration-adjustments.css";
 
 export default function Home() {
 
@@ -300,7 +301,7 @@ export default function Home() {
                   <img 
                     src={step.image} 
                     alt={step.title} 
-                    className="w-full h-48 object-cover rounded-xl shadow-lg aeda-image aeda-image-enhanced layered-shadow"
+                    className="w-full h-48 object-contain rounded-xl shadow-lg aeda-image aeda-image-enhanced layered-shadow bg-gray-50"
                   />
                   <div className="absolute -top-4 -left-4 w-16 h-16 bg-[#f97316] text-white rounded-full flex items-center justify-center text-3xl font-bold shadow-xl animate-pulse-glow">
                     {step.letter}
@@ -332,7 +333,7 @@ export default function Home() {
                     <img 
                       src={benefit.image} 
                       alt={benefit.title} 
-                      className="w-full h-full object-cover hover:scale-110 transition-transform duration-500 parallax-image"
+                      className="w-full h-full object-contain hover:scale-105 transition-transform duration-500 parallax-image bg-gray-50"
                     />
                   </div>
                   <div className="p-6">

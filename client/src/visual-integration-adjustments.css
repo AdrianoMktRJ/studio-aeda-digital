@@ -1,0 +1,36 @@
+/* ===================================
+   AJUSTES DE TAMANHO DAS IMAGENS
+   Para exibir imagens completas sem cortes
+   =================================== */
+
+/* Ajuste de altura para imagens do Método A.E.D.A. */
+.aeda-image-enhanced {
+  min-height: 192px; /* h-48 = 12rem = 192px */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Ajuste de altura para imagens de Benefícios */
+.benefit-image-enhanced {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+}
+
+/* Garantir que imagens com object-contain tenham fundo suave */
+.aeda-image.bg-gray-50,
+.parallax-image.bg-gray-50 {
+  padding: 0.5rem;
+}
+
+/* Ajustar overflow para não cortar elementos decorativos */
+.aeda-card-enhanced {
+  overflow: visible !important;
+}
+
+/* Melhorar espaçamento dos cards para acomodar elementos decorativos */
+.aeda-card-enhanced .mb-6 {
+  margin-bottom: 2rem;
+}
