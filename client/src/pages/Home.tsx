@@ -184,6 +184,45 @@ export default function Home() {
                   <Link href="/sobre">Saiba Mais</Link>
                 </Button>
               </div>
+              
+              {/* Badges de Credibilidade */}
+              <div className="mt-12 flex flex-wrap items-center justify-center lg:justify-start gap-6 animate-fade-in-up-delay-3">
+                <div className="flex items-center gap-2 text-white/90">
+                  <div className="w-12 h-12 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center">
+                    <svg className="w-6 h-6 text-[#f97316]" fill="currentColor" viewBox="0 0 20 20">
+                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                    </svg>
+                  </div>
+                  <div>
+                    <div className="font-bold text-lg">4.9/5</div>
+                    <div className="text-sm text-white/70">Avaliação média</div>
+                  </div>
+                </div>
+                
+                <div className="flex items-center gap-2 text-white/90">
+                  <div className="w-12 h-12 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center">
+                    <svg className="w-6 h-6 text-[#f97316]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                    </svg>
+                  </div>
+                  <div>
+                    <div className="font-bold text-lg">50+</div>
+                    <div className="text-sm text-white/70">Clientes ativos</div>
+                  </div>
+                </div>
+                
+                <div className="flex items-center gap-2 text-white/90">
+                  <div className="w-12 h-12 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center">
+                    <svg className="w-6 h-6 text-[#f97316]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                  </div>
+                  <div>
+                    <div className="font-bold text-lg">100%</div>
+                    <div className="text-sm text-white/70">Garantia 7 dias</div>
+                  </div>
+                </div>
+              </div>
             </div>
               <div className="hidden lg:block animate-fade-in-up-delay-3">
                 <div className="relative hero-image-enhanced depth-layers">
@@ -329,11 +368,11 @@ export default function Home() {
               const Icon = benefit.icon;
               return (
                 <div key={index} className="bg-white rounded-xl border border-gray-200 overflow-hidden hover-lift scroll-reveal benefit-card-enhanced layered-shadow" style={{ animationDelay: `${index * 100}ms` }}>
-                  <div className="relative h-48 overflow-hidden benefit-image-enhanced">
+                  <div className="relative h-64 overflow-hidden benefit-image-enhanced">
                     <img 
                       src={benefit.image} 
                       alt={benefit.title} 
-                      className="w-full h-full object-contain hover:scale-105 transition-transform duration-500 parallax-image bg-gray-50"
+                      className="w-full h-full object-cover hover:scale-105 transition-transform duration-500 parallax-image"
                     />
                   </div>
                   <div className="p-6">
