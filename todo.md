@@ -166,3 +166,40 @@
 - [x] Criar hook useScrollReveal para detectar elementos no viewport
 
 
+
+## 🤖 Assistente Virtual com IA (Chatbot)
+
+### Infraestrutura
+- [ ] Adicionar feature web-db-user ao projeto
+- [x] Criar tabela de leads no banco de dados
+- [x] Criar tabela de conversas do chatbot
+- [x] Criar tabela de mensagens do chat
+
+### Backend (tRPC)
+- [x] Procedure para enviar mensagem ao assistente
+- [x] Procedure para salvar lead qualificado
+- [ ] Procedure para agendar diagnóstico
+- [x] Procedure para listar histórico de conversas
+- [x] Integração com LLM para respostas inteligentes
+- [x] Sistema de notificação para novos leads
+
+### Frontend
+- [x] Componente ChatWidget (ícone flutuante)
+- [x] Componente ChatWindow (janela de conversa)
+- [x] Componente MessageBubble (bolhas de mensagem)
+- [x] Animações de digitação
+- [x] Histórico de conversas
+- [ ] Formulário de captura de dados
+
+### Inteligência do Assistente
+- [ ] Fluxo de qualificação (Construtora vs Advocacia)
+- [ ] FAQ sobre método A.E.D.A.
+- [ ] Agendamento de diagnóstico gratuito
+- [ ] Explicação de planos e serviços
+- [ ] Respostas sobre cases de sucesso
+
+### Integração
+- [x] Adicionar widget em todas as páginas
+- [ ] Testar em desktop e mobile
+- [ ] Garantir acessibilidade
+- [ ] Deploy e verificação

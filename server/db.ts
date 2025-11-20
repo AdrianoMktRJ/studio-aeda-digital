@@ -1,6 +1,17 @@
-import { eq } from "drizzle-orm";
+import { eq, desc } from "drizzle-orm";
 import { drizzle } from "drizzle-orm/mysql2";
-import { InsertUser, users, formSubmissions, InsertFormSubmission } from "../drizzle/schema";
+import { 
+  InsertUser, 
+  users, 
+  formSubmissions, 
+  InsertFormSubmission,
+  chatLeads,
+  InsertChatLead,
+  chatConversations,
+  InsertChatConversation,
+  chatMessages,
+  InsertChatMessage
+} from "../drizzle/schema";
 import { ENV } from './_core/env';
 
 let _db: ReturnType<typeof drizzle> | null = null;
@@ -120,4 +131,161 @@ export async function getFormSubmissionsByType(type: "diagnostico" | "contato") 
   }
 
   return await db.select().from(formSubmissions).where(eq(formSubmissions.type, type));
+}
+
+
+// ==================== CHATBOT FUNCTIONS ====================
+
+/**
+ * Criar uma nova conversa do chatbot
+ */
+export async function createChatConversation(conversation: InsertChatConversation) {
+  const db = await getDb();
+  if (!db) {
+    throw new Error("Database not available");
+  }
+
+  await db.insert(chatConversations).values(conversation);
+  return conversation;
+}
+
+/**
+ * Buscar conversa por sessionId
+ */
+export async function getChatConversationBySessionId(sessionId: string) {
+  const db = await getDb();
+  if (!db) {
+    throw new Error("Database not available");
+  }
+
+  const result = await db
+    .select()
+    .from(chatConversations)
+    .where(eq(chatConversations.sessionId, sessionId))
+    .limit(1);
+
+  return result.length > 0 ? result[0] : undefined;
+}
+
+/**
+ * Atualizar conversa para associar com lead
+ */
+export async function updateConversationWithLead(conversationId: string, leadId: string) {
+  const db = await getDb();
+  if (!db) {
+    throw new Error("Database not available");
+  }
+
+  await db
+    .update(chatConversations)
+    .set({ leadId, updatedAt: new Date() })
+    .where(eq(chatConversations.id, conversationId));
+}
+
+/**
+ * Finalizar conversa
+ */
+export async function finalizeChatConversation(conversationId: string) {
+  const db = await getDb();
+  if (!db) {
+    throw new Error("Database not available");
+  }
+
+  await db
+    .update(chatConversations)
+    .set({ status: "finalizada", updatedAt: new Date() })
+    .where(eq(chatConversations.id, conversationId));
+}
+
+/**
+ * Criar uma nova mensagem do chat
+ */
+export async function createChatMessage(message: InsertChatMessage) {
+  const db = await getDb();
+  if (!db) {
+    throw new Error("Database not available");
+  }
+
+  await db.insert(chatMessages).values(message);
+  return message;
+}
+
+/**
+ * Buscar mensagens de uma conversa
+ */
+export async function getChatMessages(conversationId: string) {
+  const db = await getDb();
+  if (!db) {
+    throw new Error("Database not available");
+  }
+
+  return await db
+    .select()
+    .from(chatMessages)
+    .where(eq(chatMessages.conversationId, conversationId))
+    .orderBy(chatMessages.createdAt);
+}
+
+/**
+ * Criar um novo lead capturado pelo chatbot
+ */
+export async function createChatLead(lead: InsertChatLead) {
+  const db = await getDb();
+  if (!db) {
+    throw new Error("Database not available");
+  }
+
+  await db.insert(chatLeads).values(lead);
+  return lead;
+}
+
+/**
+ * Buscar lead por email
+ */
+export async function getChatLeadByEmail(email: string) {
+  const db = await getDb();
+  if (!db) {
+    throw new Error("Database not available");
+  }
+
+  const result = await db
+    .select()
+    .from(chatLeads)
+    .where(eq(chatLeads.email, email))
+    .limit(1);
+
+  return result.length > 0 ? result[0] : undefined;
+}
+
+/**
+ * Buscar todos os leads
+ */
+export async function getAllChatLeads() {
+  const db = await getDb();
+  if (!db) {
+    throw new Error("Database not available");
+  }
+
+  return await db
+    .select()
+    .from(chatLeads)
+    .orderBy(desc(chatLeads.createdAt));
+}
+
+/**
+ * Atualizar status do lead
+ */
+export async function updateChatLeadStatus(
+  leadId: string,
+  status: "novo" | "contatado" | "qualificado" | "convertido"
+) {
+  const db = await getDb();
+  if (!db) {
+    throw new Error("Database not available");
+  }
+
+  await db
+    .update(chatLeads)
+    .set({ status })
+    .where(eq(chatLeads.id, leadId));
 }

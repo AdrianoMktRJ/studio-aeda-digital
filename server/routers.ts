@@ -1,6 +1,7 @@
 import { COOKIE_NAME } from "@shared/const";
 import { getSessionCookieOptions } from "./_core/cookies";
 import { systemRouter } from "./_core/systemRouter";
+import { chatbotRouter } from "./chatbot-router";
 import { publicProcedure, router } from "./_core/trpc";
 import { z } from "zod";
 import { createFormSubmission } from "./db";
@@ -9,6 +10,7 @@ import { createHubSpotContact, createHubSpotDeal, searchHubSpotContact } from ".
 
 export const appRouter = router({
   system: systemRouter,
+  chatbot: chatbotRouter,
 
   auth: router({
     me: publicProcedure.query(opts => opts.ctx.user),
