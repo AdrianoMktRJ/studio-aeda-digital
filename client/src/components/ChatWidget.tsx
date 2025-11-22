@@ -69,8 +69,22 @@ export default function ChatWidget() {
     },
   });
 
-  const handleSendMessage = () => {
-    if (!inputMessage.trim() || !conversationId) return;
+  const handleSendMessage = async () => {
+    if (!inputMessage.trim()) return;
+
+    // Se não tiver conversationId, criar uma nova conversa primeiro
+    if (!conversationId) {
+      const result = await refetch();
+      if (!result.data) {
+        setMessages(prev => [...prev, {
+          id: nanoid(),
+          role: "assistant",
+          content: "Desculpe, não foi possível iniciar a conversa. Por favor, recarregue a página.",
+          createdAt: new Date(),
+        }]);
+        return;
+      }
+    }
 
     // Adicionar mensagem do usuário
     const userMessage: Message = {
@@ -81,13 +95,14 @@ export default function ChatWidget() {
     };
 
     setMessages(prev => [...prev, userMessage]);
+    const messageToSend = inputMessage;
     setInputMessage("");
     setIsTyping(true);
 
     // Enviar para o backend
     sendMessageMutation.mutate({
-      conversationId,
-      message: inputMessage,
+      conversationId: conversationId || conversationData?.conversation.id || "",
+      message: messageToSend,
     });
   };
 
@@ -190,11 +205,11 @@ export default function ChatWidget() {
                 onKeyPress={handleKeyPress}
                 placeholder="Digite sua mensagem..."
                 className="flex-1"
-                disabled={isTyping || !conversationId}
+                disabled={isTyping}
               />
               <Button
                 onClick={handleSendMessage}
-                disabled={!inputMessage.trim() || isTyping || !conversationId}
+                disabled={!inputMessage.trim() || isTyping}
                 className="bg-orange-500 hover:bg-orange-600"
               >
                 {isTyping ? (

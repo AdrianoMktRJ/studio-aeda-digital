@@ -184,33 +184,7 @@ export default function Home() {
                   <Link href="/sobre">Saiba Mais</Link>
                 </Button>
               </div>
-              
-              {/* Badges de Credibilidade */}
-              <div className="mt-10 pt-8 border-t border-white/20">
-                <div className="flex flex-wrap items-center justify-center lg:justify-start gap-8 text-white/90">
-                  <div className="flex items-center gap-2">
-                    <span className="text-2xl">⭐</span>
-                    <div>
-                      <div className="font-bold">4.9/5</div>
-                      <div className="text-sm text-white/70">Avaliação</div>
-                    </div>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <span className="text-2xl">👥</span>
-                    <div>
-                      <div className="font-bold">50+</div>
-                      <div className="text-sm text-white/70">Clientes</div>
-                    </div>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <span className="text-2xl">✅</span>
-                    <div>
-                      <div className="font-bold">7 dias</div>
-                      <div className="text-sm text-white/70">Garantia</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+
             </div>
               <div className="hidden lg:block animate-fade-in-up-delay-3">
                 <div className="relative hero-image-enhanced depth-layers">

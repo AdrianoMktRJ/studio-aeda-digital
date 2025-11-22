@@ -32,7 +32,7 @@ export default function Header() {
           <Link href="/">
             <div className="flex items-center gap-3 cursor-pointer group">
               <div className="w-12 h-12 rounded-lg flex items-center justify-center p-1">
-                <img src="/logo-aeda.png" alt="AEDA Logo" className="w-full h-full object-contain" />
+                <img src="/logo-aeda-transparent.png" alt="AEDA Logo" className="w-full h-full object-contain" />
               </div>
               <div className="flex flex-col justify-center items-start">
                 <span className="text-xl font-bold text-[#1e3a8a] leading-none">Studio AEDA Digital</span>

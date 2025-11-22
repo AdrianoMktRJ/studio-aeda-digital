@@ -25,7 +25,7 @@ export default function Footer() {
           <div>
             <div className="flex items-center gap-3 mb-4">
               <div className="w-12 h-12 rounded-lg flex items-center justify-center p-1">
-                <img src="/logo-aeda.png" alt="AEDA Logo" className="w-full h-full object-contain" />
+                <img src="/logo-aeda-transparent.png" alt="AEDA Logo" className="w-full h-full object-contain" />
               </div>
               <div className="flex flex-col justify-center items-start">
                 <span className="text-lg font-bold text-[#1e3a8a] leading-none">Studio AEDA Digital</span>
