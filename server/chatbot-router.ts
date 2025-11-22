@@ -89,7 +89,7 @@ export const chatbotRouter = router({
           id: nanoid(),
           conversationId: id,
           role: "assistant",
-          content: "Olá! 👋 Sou o assistente virtual do Studio AEDA Digital.\n\nAjudamos construtoras e escritórios de advocacia a automatizar processos e implementar IA de forma prática.\n\nComo posso te ajudar hoje?",
+          content: "Olá! 👋 Sou o assistente virtual do Studio AEDA Digital.\n\nAjudamos você a automatizar processos e implementar IA de forma prática.\n\nComo posso te ajudar hoje?",
         });
       }
 
